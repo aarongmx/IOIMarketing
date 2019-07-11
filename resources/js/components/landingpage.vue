@@ -106,18 +106,30 @@
                 </div>
             </div>
        </div>
-       <div class="row">
-           <div class="col-12">
-               <h2>Preguntas Frecuentes</h2>
+        <div class="row">
+            <div class="col-12 ">
+                 <h2>Preguntas Frecuentes</h2><br>
+                     <div class="row mx-md-n5">
+                         <h5 class="col px-md-5"><div class="shadow-lg p-3 mb-5 bg-white rounded">Pregunta 1  <br> <br>¿Cuál es el número de campañas permitidas? </div></h5>
+                         <h5 class="col px-md-5"><div class="shadow-lg p-3 mb-5 bg-white rounded">Pregunta 2 <br>¿Cuántos perfiles pueden obtener?</div></h5>
+                     </div><br>
+                    <div class="row mx-md-n5">
+                         <h5 class="col px-md-5"><div class="shadow-lg p-3 mb-5 bg-white rounded">Pregunta 3  <br> <br>¿Cuántos videos se pueden subir? </div></h5>
+                         <h5 class="col px-md-5"><div class="shadow-lg p-3 mb-5 bg-white rounded">Pregunta 4  <br> <br>¿Puedo actualizar mi plan?</div></h5>
+             </div><br>
+            <div class="row mx-md-n5">
+                        <h5 class="col px-md-5"> <div class="shadow-lg p-3 mb-5 bg-white rounded">Pregunta 5   <br> <br>¿Es posible actualizar mis campañas actuales? </div></h5>
+                        <div class="col px-md-5"><div ></div></div>
+            </div>
+            </div>
+        </div><br><br>
 
-           </div>
-       </div>
         <div class="row">
            <div class="col-12">
                <h2>Contacto</h2>
 
            </div>
-       </div>
+       </div><br>
         <h5>Nombre:</h5>
             <div class="form-group col-md-6">      
                 <input type="correo" class="form-control">
@@ -145,6 +157,7 @@
 font-size: 1rem;
 color: brown;
 }
+
 </style>
 <script>
     export default {

@@ -22,6 +22,11 @@ const router = new VueRouter({
             name:'campañaprevia'
         },
         {
+            path:'/campañas',
+            component: () => import('./components/campañas.vue'),
+            name:'campañas'
+        },
+        {
             path:'/cuentas',
             component: () => import('./components/cuentas.vue'),
             name:'cuentas'
@@ -75,11 +80,6 @@ const router = new VueRouter({
             path:'/navegacion2',
             component: () => import('./components/navegacion2.vue'),
             name:'navegacion2'
-        },
-        {
-            path:'/paquetes',
-            component: () => import('./components/paquetes.vue'),
-            name:'paquetes'
         },
         {
             path:'/piedepagina',

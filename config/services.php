@@ -13,6 +13,22 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    'facebook' => [
+            'client_id' => env('612062362649522'),
+            'client_secret' => env('adaf86d80c0cfbee6b20ec65090d1e72'),
+            'redirect' => env('http://brand-wifi.com/'),
+        ],
+    'google' => [
+            'client_id' => env('612062362649522'),
+            'client_secret' => env('adaf86d80c0cfbee6b20ec65090d1e72'),
+            'redirect' => env('http://brand-wifi.com/'),
+        ],
+    'mailchimp' => [
+            'client_id' => env('612062362649522'),
+            'client_secret' => env('adaf86d80c0cfbee6b20ec65090d1e72'),
+            'redirect' => env('http://brand-wifi.com/'),
+        ],
+
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

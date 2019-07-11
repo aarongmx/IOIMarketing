@@ -19,11 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+s;
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -50,29 +46,13 @@ var render = function() {
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/dashboard" } }, [_vm._v("Dashboard")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/cuenta" } }, [_vm._v("Cuentas")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/planes" } }, [_vm._v("Planes")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/paquetes" } }, [_vm._v("Paquetes")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/datosbancarios" } }, [
-        _vm._v("Datos Bancarios")
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/campañas" } }, [_vm._v("Campañas")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/wordexpress" } }, [
-        _vm._v("Word Express")
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/perfilesvista" } }, [
-        _vm._v("Perfil de Vista")
-      ]),
-      _vm._v(" "),
       _c("router-link", { attrs: { to: "/login" } }, [_vm._v("Login")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/registro" } }, [_vm._v("Registro")])
+      _c("router-link", { attrs: { to: "/registro" } }, [_vm._v("Registro")]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: "/piedepagina" } }, [
+        _vm._v("Pie de Pagina")
+      ])
     ],
     1
   )

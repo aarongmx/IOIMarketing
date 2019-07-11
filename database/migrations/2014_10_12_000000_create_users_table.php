@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('verificar_correo_electronico')->nullable();
             $table->string('contrasenia');
             $table->boolean('es_admin');
+            $table->string('provider');
+            $table->string('provider_id')->unique();
             $table->rememberToken();
             $table->timestamps();
             $table->string('imagen');
