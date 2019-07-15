@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/{ruta}', function () {
-    return view('welcome');
-
-})->where('ruta','.*');
+Route::get('/{ruta}',
+    '\\' . Pallares\LaravelNuxt\Controllers\NuxtController::class
+)->where('ruta','.*');
 

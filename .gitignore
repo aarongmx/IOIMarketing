@@ -9,3 +9,15 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+### Nuxt ###
+# gitignore template for Nuxt.js projects
+#
+# Recommended template: Node.gitignore
+
+# Nuxt build
+.nuxt
+
+ # Nuxt generate
+dist
+

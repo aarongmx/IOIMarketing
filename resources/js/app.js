@@ -5,9 +5,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,7 +21,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
-Vue.component('navegacion', require('./components/navegacion.vue').default);
+// Vue.component('navegacion', require('./components/navegacion.vue').default);
 
 
 /**
@@ -29,7 +29,7 @@ Vue.component('navegacion', require('./components/navegacion.vue').default);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-import router from './router'
-const app = new Vue({
-    router 
-}).$mount('#app');
+// import router from './router'
+// const app = new Vue({
+//     router
+// }).$mount('#app');

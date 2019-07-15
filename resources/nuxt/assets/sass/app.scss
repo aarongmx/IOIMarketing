@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "./abstracts/colors";
+
+@import "./base/reset";
+@import "./base/typography";
+
+@import "./components/hero";
+@import "./components/footer";
+
+@for $i from 1 through 4 {
+    $size: 25;
+    .vh-#{$size * $i} {
+        min-height: $size * $i * 1vh;
+    }
+}
+

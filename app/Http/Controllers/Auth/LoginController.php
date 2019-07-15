@@ -20,9 +20,8 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    
-    use AuthenticatesUsers;
 
+    use AuthenticatesUsers;
     /**
      * Where to redirect users after login.
      *
@@ -41,7 +40,7 @@ class LoginController extends Controller
     }
 
 
-    
+
     public function handleProviderCallback($provider)
     {
         try{
@@ -54,7 +53,7 @@ class LoginController extends Controller
             'provider_id' => $socialite->getId(),
             'name' => $socialite->getName(),
             'email' => $socialite->getEmail(),
-            'password' => bcrypt(str_random(16)) // creamos contraseña por default 
+            'password' => bcrypt(str_random(16)) // creamos contraseña por default
         ];
 
         $user = User::where('provider_id', $socialite->getId() )->first();
@@ -76,7 +75,7 @@ class LoginController extends Controller
         return redirect()->to($this->redirectTo);
 
     }
-    
+
 
 
 

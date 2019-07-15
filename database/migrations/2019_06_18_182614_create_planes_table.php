@@ -17,7 +17,7 @@ class CreatePlanesTable extends Migration
             $table->increments('id');
             $table->text('nombre');
             $table->double('costo');
-            $table->json('caracteristicas');
+            $table->text('caracteristicas');
             $table->text('descripcion');
             $table->text('imagen');
             $table->timestamps();

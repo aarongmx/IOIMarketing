@@ -52301,129 +52301,70 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: [{
     path: '/',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./components/landingpage.vue */ "./resources/js/components/landingpage.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./components/landingpage.vue */ "./resources/js/components/landingpage.vue"));
     },
     name: 'default'
-  }, {
-    path: '/campañanueva',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./components/campañanueva.vue */ "./resources/js/components/campañanueva.vue"));
-    },
-    name: 'campañanueva'
-  }, {
-    path: '/campañaprevia',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/campañaprevia.vue */ "./resources/js/components/campañaprevia.vue"));
-    },
-    name: 'campañaprevia'
-  }, {
-    path: '/campañas',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./components/campañas.vue */ "./resources/js/components/campañas.vue"));
-    },
-    name: 'campañas'
-  }, {
-    path: '/cuentas',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/cuentas.vue */ "./resources/js/components/cuentas.vue"));
-    },
-    name: 'cuentas'
-  }, {
-    path: '/dashboard',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./components/dashboard.vue */ "./resources/js/components/dashboard.vue"));
-    },
-    name: 'dashboard'
-  }, {
-    path: '/datosbancarios',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./components/datosbancarios.vue */ "./resources/js/components/datosbancarios.vue"));
-    },
-    name: 'datosbancarios'
-  }, {
-    path: '/editarcampañas',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./components/editarcampañas.vue */ "./resources/js/components/editarcampañas.vue"));
-    },
-    name: 'editarcampañas'
-  }, {
-    path: '/editarperfil',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./components/editarperfil.vue */ "./resources/js/components/editarperfil.vue"));
-    },
-    name: 'editarperfil'
-  }, {
-    path: '/empresaperfil',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./components/empresaperfil.vue */ "./resources/js/components/empresaperfil.vue"));
-    },
-    name: 'empresaperfil'
-  }, {
-    path: '/empresaperfilnuevo',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./components/empresaperfilnuevo.vue */ "./resources/js/components/empresaperfilnuevo.vue"));
-    },
-    name: 'empresaperfilnuevo'
-  }, {
-    path: '/empresaperfilprevio',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./components/empresaperfilprevio.vue */ "./resources/js/components/empresaperfilprevio.vue"));
-    },
-    name: 'empresaperfilprevio'
-  }, {
+  }, // {
+  //     path:'/campañanueva',
+  //     component: () => import('./components/campañanueva.vue'),
+  //     name:'campañanueva'
+  // },
+  // {
+  //     path:'/campañaprevia',
+  //     component: () => import('./components/campañaprevia.vue'),
+  //     name:'campañaprevia'
+  // },
+  // {
+  //     path:'/campañas',
+  //     component: () => import('./components/campañas.vue'),
+  //     name:'campañas'
+  // },
+  // {
+  //     path:'/cuentas',
+  //     component: () => import('./components/cuentas.vue'),
+  //     name:'cuentas'
+  // },
+  // {
+  //     path:'/dashboard',
+  //     component: () => import('./components/dashboard.vue'),
+  //     name:'dashboard'
+  // },
+  // {
+  //     path:'/datosbancarios',
+  //     component: () => import('./components/datosbancarios.vue'),
+  //     name:'datosbancarios'
+  // },
+  // {
+  //     path:'/editarcampañas',
+  //     component: () => import('./components/editarcampañas.vue'),
+  //     name:'editarcampañas'
+  // },
+  // {
+  //     path:'/editarperfil',
+  //     component: () => import('./components/editarperfil.vue'),
+  //     name:'editarperfil'
+  // },
+  // {
+  //     path:'/empresaperfil',
+  //     component: () => import('./components/empresaperfil.vue'),
+  //     name:'empresaperfil'
+  // },
+  // {
+  //     path:'/empresaperfilnuevo',
+  //     component: () => import('./components/empresaperfilnuevo.vue'),
+  //     name:'empresaperfilnuevo'
+  // },
+  // {
+  //     path:'/empresaperfilprevio',
+  //     component: () => import('./components/empresaperfilprevio.vue'),
+  //     name:'empresaperfilprevio'
+  // },
+  {
     path: '/login',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./components/login.vue */ "./resources/js/components/login.vue"));
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/login.vue */ "./resources/js/components/login.vue"));
     },
     name: 'login'
-  }, {
-    path: '/navegacion',
-    component: function component() {
-      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./components/navegacion.vue */ "./resources/js/components/navegacion.vue"));
-    },
-    name: 'navegacion'
-  }, {
-    path: '/navegacion2',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/navegacion2.vue */ "./resources/js/components/navegacion2.vue"));
-    },
-    name: 'navegacion2'
-  }, {
-    path: '/piedepagina',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./components/piedepagina.vue */ "./resources/js/components/piedepagina.vue"));
-    },
-    name: 'piedepagina'
-  }, {
-    path: '/planes',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/planes.vue */ "./resources/js/components/planes.vue"));
-    },
-    name: 'planes'
-  }, {
-    path: '/registro',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./components/registro.vue */ "./resources/js/components/registro.vue"));
-    },
-    name: 'registro'
-  }, {
-    path: '/wordexpress',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./components/wordexpress.vue */ "./resources/js/components/wordexpress.vue"));
-    },
-    name: 'wordexpress'
-  }, {
-    path: '/administrador/login',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/administrador/login.vue */ "./resources/js/components/administrador/login.vue"));
-    },
-    name: 'login-admin'
-  }, {
-    path: '/administrador/dashboard',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/administrador/dashboard.vue */ "./resources/js/components/administrador/dashboard.vue"));
-    },
-    name: 'dashboard-admin'
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
@@ -52449,8 +52390,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xamppp\htdocs\IOIMARKETING\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xamppp\htdocs\IOIMARKETING\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\IOIMarketing\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\IOIMarketing\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
