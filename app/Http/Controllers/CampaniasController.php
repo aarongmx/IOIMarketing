@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campanias;
 use Illuminate\Http\Request;
+use Zend\Diactoros\Response;
 
 class CampaniasController extends Controller
 {
@@ -14,7 +15,7 @@ class CampaniasController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Campanias::all(), Response::HTTP_OK);
     }
 
     /**

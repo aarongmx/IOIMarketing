@@ -10,22 +10,22 @@
                     <nuxt-link class="nav-link" to="/">Inicio</nuxt-link>
                 </li>
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/quienesSomos">¿Quiénes Somos?</nuxt-link>
+                    <a class="nav-link" href="/#quienes-somos-section">¿Quiénes Somos?</a>
                 </li>
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/">Servicios</nuxt-link>
+                    <a class="nav-link" href="/#servicios-section">Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/">Preguntas Frecuentes</nuxt-link>
+                    <a class="nav-link" href="/#preguntas-frecuentes-section">Preguntas Frecuentes</a>
                 </li>
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/">Contacto</nuxt-link>
+                    <a class="nav-link" href="/#contacto-section">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/login">Iniciar Sesión</nuxt-link>
+                    <nuxt-link class="nav-link btn btn-primary rounded-pill text-white mr-2" to="/login">Iniciar Sesión</nuxt-link>
                 </li>
                  <li class="nav-item">
-                    <nuxt-link class="nav-link btn" to="/">Registrarse</nuxt-link>
+                    <nuxt-link class="nav-link btn border rounded-pill" to="/">Registrarse</nuxt-link>
                 </li>
             </ul>
         </div>

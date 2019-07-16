@@ -13,7 +13,7 @@ class CreateDatosBancariosTabla extends Migration
      */
     public function up()
     {
-        Schema::create('datos_bancarios_tabla', function (Blueprint $table) {
+        Schema::create('datos_bancarios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('factura');
             $table->integer('numero_cuenta');

@@ -13,7 +13,7 @@ class CreateRedesSocialesTabla extends Migration
      */
     public function up()
     {
-        Schema::create('redes_sociales_tabla', function (Blueprint $table) {
+        Schema::create('redes_sociales', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nombre_red_social');
             $table->text('url');

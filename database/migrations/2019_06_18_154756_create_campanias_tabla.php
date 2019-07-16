@@ -13,7 +13,7 @@ class CreateCampaniasTabla extends Migration
      */
     public function up()
     {
-        Schema::create('campanias_tabla', function (Blueprint $table) {
+        Schema::create('campanias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('likes');
             $table->integer('views');

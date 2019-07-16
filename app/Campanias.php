@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Campanias extends Model
 {
-    protected $table = 'campanias_tabla';
-    protected $fillable = ['likes', 'views', 'imagen'];
+    protected $table = 'campanias';
+    protected $fillable = ['likes', 'views', 'imagen', 'slug'];
+
     public function getRouteKeyName()
     {
         return 'slug';

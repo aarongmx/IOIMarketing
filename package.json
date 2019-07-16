@@ -18,6 +18,7 @@
         "vue": "^2.6.10",
         "vue-fragment": "^1.5.1",
         "vue-meta": "^2.0.5",
+        "vue-paypal-checkout": "^3.2.0",
         "vue-router": "^3.0.7",
         "vue-style-loader": "^4.1.2",
         "vue-svg-loader": "^0.12.0"

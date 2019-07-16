@@ -1,14 +1,17 @@
 const laravelNuxt = require("laravel-nuxt");
 
 module.exports = laravelNuxt({
+    router: {
+        mode: 'history'
+    },
     css: [
         '@/assets/sass/app.scss'
     ],
     modules: [
-        "@nuxtjs/axios"
     ],
     plugins: [
         '~/plugins/vue-fragments',
+        '~/plugins/vue-paypal',
     ],
     build: {
         vendor: ["jquery", "bootstrap"],

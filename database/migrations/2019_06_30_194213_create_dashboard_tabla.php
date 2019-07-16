@@ -13,7 +13,7 @@ class CreateDashboardTabla extends Migration
      */
     public function up()
     {
-        Schema::create('dashboard_tabla', function (Blueprint $table) {
+        Schema::create('dashboard', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->text('slug');

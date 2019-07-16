@@ -15,8 +15,8 @@ class PlanesController extends Controller
      */
     public function index()
     {
-        $planes=Planes::all();
-        return response()->json($planes,200);
+        // dd(trim(Planes::all()));
+        return response()->json(Planes::all(), Response::HTTP_OK);
     }
     /**
      * Store a newly created resource in storage.
@@ -35,10 +35,9 @@ class PlanesController extends Controller
      * @param  \App\Planes  $planes
      * @return \Illuminate\Http\Response
      */
-    public function show(Planes $planes)
+    public function show(Planes $plane)
     {
-        $plan=Planes::where('slug',$planes)->first();dd($plan);
-        return response()->json($plan,200);
+        return response()->json($plane, Response::HTTP_OK);
     }
     /**
      * Update the specified resource in storage.
@@ -47,7 +46,7 @@ class PlanesController extends Controller
      * @param  \App\Planes  $planes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Planes $planes)
+    public function update(Request $request, Planes $plane)
     {
         //
     }
@@ -58,7 +57,7 @@ class PlanesController extends Controller
      * @param  \App\Planes  $planes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Planes $planes)
+    public function destroy(Planes $plane)
     {
         //
     }

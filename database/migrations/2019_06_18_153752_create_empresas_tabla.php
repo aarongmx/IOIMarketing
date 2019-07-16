@@ -13,7 +13,7 @@ class CreateEmpresasTabla extends Migration
      */
     public function up()
     {
-        Schema::create('empresas_tabla', function (Blueprint $table) {
+        Schema::create('empresas', function (Blueprint $table) {
             $table->increments('id');
             $table->text('direccion');
             $table->text('telefono');

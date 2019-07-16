@@ -13,7 +13,7 @@ class CreateWordExpressTabla extends Migration
      */
     public function up()
     {
-        Schema::create('word_express_tabla', function (Blueprint $table) {
+        Schema::create('word_express', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->text('slug');

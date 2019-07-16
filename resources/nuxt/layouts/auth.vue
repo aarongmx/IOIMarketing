@@ -1,5 +1,7 @@
 <template>
-<h1>Campañas</h1>
+    <div class="container my-5">
+        <nuxt />
+    </div>
 </template>
 
 <script>
@@ -7,7 +9,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>
