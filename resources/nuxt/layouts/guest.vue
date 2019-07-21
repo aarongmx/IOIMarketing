@@ -1,9 +1,9 @@
 <template>
-    <fragment>
+    <div>
         <Navigation/>
         <nuxt/>
         <Footer />
-    </fragment>
+    </div>
 </template>
 
 <script>

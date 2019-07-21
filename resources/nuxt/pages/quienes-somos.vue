@@ -38,7 +38,7 @@
 
 <script>
 export default {
-    layout: 'page',
+    layout: 'guest',
     data: () => {
         return {
             about: {

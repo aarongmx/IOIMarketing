@@ -18,7 +18,7 @@
         </div>
 
         <div class="row my-5" id="quienes-somos-section">
-            <div class="col-11 col-md-10 col-lg-8 p-3 p-lg-5 bg-primary" style="border-radius: 0 0.8em 0.8em 0">
+            <div class="col-11 col-md-10 col-lg-8 p-3 p-lg-5 bg-primary quienes">
                 <h2 class="text-white">¿Quiénes Somos?</h2>
                 <p class="text-white">Somos una agencia de Marketing comprometida con sus clientes que busca crear sinergia con ellos y ayudarlos a crecer lo más posible. Nuestro nombre viene las siglas en inglés que quiere decir Inside of Ideas. Lo anterior porque la agencia busca penetrar lo más posible en la consciencia de las personas para entender de manera profunda sus sentimientos y actividades.</p>
                 <nuxt-link to="/quienes-somos" class="btn border border-light mt-4 text-white">Saber más</nuxt-link>
@@ -37,6 +37,7 @@
                             ${{ servicio.costo }}
                             <span class="price__currency">mxn</span>
                         </h4>
+
                         <ul class="text-left">
                             <li v-for="(item, index) in servicio.caracteristicas" :key="index">
                                 <p>{{ item }}</p>
@@ -113,28 +114,15 @@
 </template>
 
 <script>
-import url from '../utils/config'
-// import formatServices from '../utils/format'
+import { url_api } from '../utils/config'
+import formatServices from '../utils/format'
 import Brand from '../components/Brand'
+import Servicios from '../sections/servicios'
+
 export default {
-    layout: 'page',
+    layout: 'guest',
     data: () => {
         return {
-            //     {
-            //         title: "Negocios",
-            //         slug: "negocios",
-            //         price: 600,
-            //         description: [
-            //             "Paquete Plus",
-            //             "Dashboard de campañas",
-
-            //             "Administrable para 3 tiendas",
-            //             "Control de anuncios",
-            //             "Analíticas disponibles con Google y Facebook",
-            //             "Login con redes sociales Facebook, Gmail para pixel y remarketing"
-            //         ]
-            //     }
-            // ],
             preguntas: [
                 "¿Cuál es el número de campañas permitidas?",
                 "¿Cuántos perfiles puedo crear?",
@@ -152,16 +140,17 @@ export default {
         };
     },
     components: {
-        Brand
+        Brand,
+        Servicios
     },
     methods: {
         handleForm() {
             console.log(this.contacto)
-        }
+        },
     },
     async asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
         try {
-            const res = await $nuxt.$axios(`${url}/planes`)
+            const res = await $nuxt.$axios(`${url_api}/planes`)
             const servicios = res.data
             return { servicios }
         } catch (error) {
@@ -169,20 +158,16 @@ export default {
             return { error }
         }
     },
-    // mounted: () => {
-    //     $nuxt.$axios.get(`${url}/planes`)
-    //     .then(res => {
-    //         console.log(res.data)
-    //         this.paquetes = res.data
-    //     })
-    //     .catch(err => {
-    //         // console.error(err)
-    //     })
-    // }
 };
 </script>
 
 <style lang="scss" scoped>
+
+.quienes {
+    border-radius: 0 0.8em 0.8em 0;
+}
+
+
 .card--prices {
     min-height: 420px;
 }

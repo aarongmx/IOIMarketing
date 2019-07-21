@@ -8,6 +8,7 @@ module.exports = laravelNuxt({
         '@/assets/sass/app.scss'
     ],
     modules: [
+        // '@nuxtjs/auth'
     ],
     plugins: [
         '~/plugins/vue-fragments',

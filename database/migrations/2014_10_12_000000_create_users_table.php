@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('apellido_paterno');
             $table->string('apellidos_materno');
-            $table->string('correo_electronico')->unique();
+            $table->string('email')->unique();
             $table->timestamp('verificar_correo_electronico')->nullable();
-            $table->string('contrasenia');
+            $table->string('password');
             $table->boolean('es_admin');
             $table->string('provider');
             $table->string('provider_id')->unique();

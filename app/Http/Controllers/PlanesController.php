@@ -15,8 +15,11 @@ class PlanesController extends Controller
      */
     public function index()
     {
-        // dd(trim(Planes::all()));
-        return response()->json(Planes::all(), Response::HTTP_OK);
+        $planes = Planes::all();
+        foreach ($planes as $plan) {
+            $plan->caracteristicas = $this->formatoCaracteristicas($plan->caracteristicas);
+        }
+        return response()->json($planes, Response::HTTP_OK);
     }
     /**
      * Store a newly created resource in storage.
@@ -37,6 +40,7 @@ class PlanesController extends Controller
      */
     public function show(Planes $plane)
     {
+        $plane->caracteristicas = $this->formatoCaracteristicas($plane->caracteristicas);
         return response()->json($plane, Response::HTTP_OK);
     }
     /**
@@ -60,5 +64,10 @@ class PlanesController extends Controller
     public function destroy(Planes $plane)
     {
         //
+    }
+
+
+    private function formatoCaracteristicas($caracteristicas) {
+        return explode(',', str_replace(', ', ',', $caracteristicas));
     }
 }

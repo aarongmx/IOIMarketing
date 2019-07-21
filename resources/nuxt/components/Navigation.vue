@@ -25,7 +25,7 @@
                     <nuxt-link class="nav-link btn btn-primary rounded-pill text-white mr-2" to="/login">Iniciar Sesión</nuxt-link>
                 </li>
                  <li class="nav-item">
-                    <nuxt-link class="nav-link btn border rounded-pill" to="/">Registrarse</nuxt-link>
+                    <nuxt-link class="nav-link btn border rounded-pill" to="/register">Registrarse</nuxt-link>
                 </li>
             </ul>
         </div>

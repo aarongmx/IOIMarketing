@@ -1,9 +1,9 @@
-@import "~bootstrap/scss/bootstrap";
-
 @import "./abstracts/colors";
-
 @import "./base/reset";
 @import "./base/typography";
+
+
+@import "~bootstrap/scss/bootstrap";
 
 @import "./components/hero";
 @import "./components/footer";
