@@ -64,12 +64,37 @@ export default {
     },
     methods: {
         handleForm() {
-
+            console.log(this.user)
         }
     },
     components: {
         UserPicture
-    }
+    },
+    async asyncData({
+        isDev,
+        route,
+        store,
+        env,
+        params,
+        query,
+        req,
+        res,
+        redirect,
+        error
+    }) {
+        try {
+            const response = await $nuxt.$axios.get(`${url_api}/planes/${params.slug}`)
+            const servicio = response.data
+            return {
+                servicio
+            }
+        } catch (error) {
+            console.error(error)
+            return {
+                error
+            }
+        }
+    },
 }
 </script>
 

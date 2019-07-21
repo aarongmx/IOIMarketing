@@ -37,7 +37,12 @@
 </template>
 
 <script>
+const Cookie = process.client ? require('js-cookie') : undefined
+import {
+    url_api
+} from '../utils/config'
 export default {
+    middleware: 'notAuthenticated',
     data: () => {
         return {
             socialLinks: [{
@@ -61,8 +66,24 @@ export default {
     },
     methods: {
         handleForm() {
-            console.log(this.login.correo)
-            console.log(this.login.password)
+            $nuxt.$axios.post(`${url_api}/auth/login`, {
+                    'email': this.login.correo,
+                    'password': this.login.password
+                },
+                {
+                    useCredentails: true,
+                })
+                .then(res => {
+                    const auth = {
+                        accessToken: res.data.access_token
+                    }
+                    this.$store.commit('setAuth', auth) // mutating to store for client rendering
+                    Cookie.set('auth', auth) // saving token in cookie for server rendering
+                    this.$router.push('/profile')
+                })
+                .catch(err => {
+                    console.error(err)
+                })
         }
     },
 };
