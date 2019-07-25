@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,11 +19,8 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
+    Route::post('login/{service}', 'SocialLoginController@redirect');
+    Route::get('login/{service}/callback', 'SocialLoginController@callback');
 });
 
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
-
-
 Route::apiResource('planes', 'PlanesController');
-#Route::apiResource('perfiles-usuario', 'PerfilesUsuarioController');

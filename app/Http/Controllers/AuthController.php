@@ -76,15 +76,13 @@ class AuthController extends Controller
     {
         return response()->json([
             'access_token' => $token,
-            // 'user' => $this->guard()->user(),
+            'user' => $this->guard()->user(),
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 
-    public function guard() {
+    private function guard() {
         return Auth::Guard('api');
     }
-
-
 }

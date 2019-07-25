@@ -14,21 +14,22 @@ return [
     |
     */
     'facebook' => [
-            'client_id' => env('612062362649522'),
-            'client_secret' => env('adaf86d80c0cfbee6b20ec65090d1e72'),
-            'redirect' => env('http://brand-wifi.com/'),
-        ],
-    'google' => [
-            'client_id' => env('612062362649522'),
-            'client_secret' => env('adaf86d80c0cfbee6b20ec65090d1e72'),
-            'redirect' => env('http://brand-wifi.com/'),
-        ],
-    'mailchimp' => [
-            'client_id' => env('612062362649522'),
-            'client_secret' => env('adaf86d80c0cfbee6b20ec65090d1e72'),
-            'redirect' => env('http://brand-wifi.com/'),
-        ],
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT_URL'),
+    ],
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URL'),
+    ],
+
+    'mailchimp' => [
+        'client_id' => env('MAILCHIMP_CLIENT_ID'),
+        'client_secret' => env('MAILCHIMP_CLIENT_SECRET'),
+        'redirect' => env('MAILCHIMP_REDIRECT_URL'),
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),

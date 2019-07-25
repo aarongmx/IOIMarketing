@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Planes extends Model
 {
     protected $table = 'planes';
-    // protected $primaryKey = 'slug';
+
     protected $fillable = [
         'nombre',
         'costo',
@@ -17,11 +17,10 @@ class Planes extends Model
         'slug'
     ];
 
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
+    protected $casts = [
+        'caracteristicas' => 'array',
+    ];
+
     public function getRouteKeyName()
     {
         return 'slug';

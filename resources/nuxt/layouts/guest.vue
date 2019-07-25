@@ -1,7 +1,9 @@
 <template>
     <div>
         <Navigation/>
-        <nuxt/>
+        <div class="container-fluid py-5 min-vh-100">
+            <nuxt/>
+        </div>
         <Footer />
     </div>
 </template>

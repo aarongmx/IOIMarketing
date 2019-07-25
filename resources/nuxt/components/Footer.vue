@@ -1,5 +1,5 @@
 <template>
-    <footer class="container-fluid py-5 px-5 footer">
+    <footer class="container-fluid py-5 px-lg-5 footer">
         <div class="row">
             <div class="col-12 col-lg-2 my-3">
                 <div class="d-flex flex-column align-items-center justify-content-between flex-lg-row justify-content-lg-start">

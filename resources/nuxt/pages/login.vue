@@ -37,12 +37,12 @@
 </template>
 
 <script>
-const Cookie = process.client ? require('js-cookie') : undefined
 import {
     url_api
 } from '../utils/config'
+
 export default {
-    middleware: 'notAuthenticated',
+    // middleware: 'notAuthenticated',
     data: () => {
         return {
             socialLinks: [{
@@ -66,20 +66,22 @@ export default {
     },
     methods: {
         handleForm() {
-            $nuxt.$axios.post(`${url_api}/auth/login`, {
+            const Cookie = process.client ? require('js-cookie') : undefined
+
+            $nuxt.$axios
+                .post(`${url_api}/auth/login`, {
                     'email': this.login.correo,
                     'password': this.login.password
-                },
-                {
+                }, {
                     useCredentails: true,
                 })
                 .then(res => {
                     const auth = {
                         accessToken: res.data.access_token
                     }
-                    this.$store.commit('setAuth', auth) // mutating to store for client rendering
+                    this.$store.commit('SET_AUTH', auth) // mutating to store for client rendering
                     Cookie.set('auth', auth) // saving token in cookie for server rendering
-                    this.$router.push('/profile')
+                    this.$router.push('/home')
                 })
                 .catch(err => {
                     console.error(err)
@@ -91,7 +93,7 @@ export default {
 
 <style lang="scss" scoped>
 .image {
-    background: url("https://images.pexels.com/photos/7357/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center / cover;
+    // background: url("https://images.pexels.com/photos/7357/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center / cover;
     clip-path: polygon(0% 0%, 0% 100%, 100% 80%, 100% 0%);
 }
 </style>

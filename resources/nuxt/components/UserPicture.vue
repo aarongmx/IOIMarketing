@@ -1,19 +1,23 @@
 <template>
 <fragment>
-    <img :src="user.picture" :alt="`Fotografía de ${user.name}`" :class="`rounded-circle mr-lg-3 picture picture--${size}`">
-    <fragment v-if="seeLink">
-        <nuxt-link to="/profile/edit">{{ user.name }}</nuxt-link>
-    </fragment>
+    <img :src="`${url_images}/${user.picture}`" :alt="`Fotografía de ${user.name}`" :class="`rounded-circle picture picture--${size}`">
+    <span class="ml-2" v-if="seeLink">{{ user.name }}</span>
 </fragment>
 </template>
 
 <script>
+import { url_images } from '../utils/config'
 export default {
     props: {
         size: String,
         user: Object,
         seeLink: false
     },
+    data: () => {
+        return {
+            url_images
+        }
+    }
 }
 </script>
 

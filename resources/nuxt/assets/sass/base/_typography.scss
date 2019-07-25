@@ -18,12 +18,48 @@ $font-sizes: (
     "h6": rem(15px)
 );
 
+$paragraph-margin-bottom: 0;
+
+$muli: "Muli", sans-serif;
+$nunito: "Nunito Sans", sans-serif;
+
+$font-families: ($muli, $nunito);
+
+// @font-face {
+//     font-family: "Muli";
+//     font-weight: 300;
+//     font-display: swap;
+//     src: local("Muli Light"), local("Muli-Light"), url("/fonts/Muli/Muli-Light.ttf") format("ttf");
+// }
+
+// @font-face {
+//     font-family: "Muli";
+//     font-weight: 400;
+//     font-display: swap;
+//     src: local("Muli Regular"), local("Muli-Regular"), url("/fonts/Muli/Muli-Regular.ttf") format("ttf");
+// }
+
+// @font-face {
+//     font-family: "Muli";
+//     font-weight: 600;
+//     font-display: swap;
+//     src: local("Muli SemiBold"), local("Muli-SemiBold"), url("/fonts/Muli/SemiBold.ttf") format("ttf");
+// }
+
+// @font-face {
+//     font-family: "Muli";
+//     font-weight: 700;
+//     font-display: swap;
+//     src: local("Muli Bold"), local("Muli-Bold"), url("/fonts/Muli/Bold.ttf") format("ttf");
+// }
+
 @for $i from 1 through 6 {
     h#{$i} {
         font: {
-            family: 'Muli', sans-serif;
+            family: "Muli", sans-serif;
             size: map-get($map: $font-sizes, $key: "h#{$i}");
-            weight: map-get($map: $font-weights, $key: "medium");
+            // weight: map-get($map: $font-weights, $key: "medium");
+            weight: 300;
         }
         line-height: 1.35;
         color: $title-color;
@@ -36,7 +72,7 @@ $font-sizes: (
 
 p {
     font: {
-        family: 'Nunito Sans', sans-serif;
+        family: "Nunito Sans", sans-serif;
         weight: map-get($map: $font-weights, $key: "regular");
     }
     line-height: 1.57;
@@ -46,14 +82,13 @@ p {
 
 .muli {
     font: {
-        font-family: 'Muli', sans-serif;
+        font-family: "Muli", sans-serif;
     }
 }
 
-
 .nunito {
     font: {
-        family: 'Nunito Sans', sans-serif;
+        family: "Nunito Sans", sans-serif;
         size: map-get($map: $font-weights, $key: "regular");
     }
 
