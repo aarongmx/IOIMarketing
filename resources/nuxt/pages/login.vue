@@ -25,7 +25,12 @@
                                     <label for>Contraseña</label>
                                     <input type="password" name id class="form-control rounded-pill px-3" placeholder="Contraseña" v-model="login.password" />
                                 </div>
-                                <button type="submit" class="btn btn-primary rounded-pill">Iniciar Sesión</button>
+                                <div class="form-group">
+                                    <nuxt-link to="forgot-password">¿Ólvido su contraseña?</nuxt-link>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill">Iniciar Sesión</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -76,10 +81,8 @@ export default {
                     useCredentails: true,
                 })
                 .then(res => {
-                    const auth = {
-                        accessToken: res.data.access_token
-                    }
-                    this.$store.commit('SET_AUTH', auth) // mutating to store for client rendering
+                    const auth = res.data.access_token
+                    this.$store.commit('auth/SET_AUTH', auth) // mutating to store for client rendering
                     Cookie.set('auth', auth) // saving token in cookie for server rendering
                     this.$router.push('/home')
                 })

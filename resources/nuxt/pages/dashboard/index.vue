@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    layout: 'guest'
+    // layout: 'guest'
 }
 </script>
 

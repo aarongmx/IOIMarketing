@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="row py-4 mx-lg-5" id="servicios-section">
+    <div class="row py-4" id="servicios-section">
         <div class="col-12">
             <h2>Servicios</h2>
         </div>
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="row py-4 px-lg-5 faq" id="preguntas-frecuentes-section">
+    <div class="row py-4 faq" id="preguntas-frecuentes-section">
         <div class="col-12">
             <h2>Preguntas Frecuentes</h2>
         </div>
@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <div class="row py-5 px-lg-5 d-flex align-items-center justify-content-center" id="contacto-section">
+    <div class="row py-5 d-flex align-items-center justify-content-center" id="contacto-section">
         <div class="col-12 col-md-8 col-lg-6">
             <div class="card">
                 <div class="card-body">
@@ -133,7 +133,6 @@ import Brand from '../components/Brand'
 import Servicios from '../sections/servicios'
 
 export default {
-    layout: 'guest',
     data: () => {
         return {
             preguntas: [

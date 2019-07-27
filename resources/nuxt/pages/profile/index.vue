@@ -23,14 +23,12 @@ import UserPicture from "../../components/UserPicture";
 
 import Cookie from "js-cookie";
 
+import {
+    mapGetters
+} from "vuex";
+
 export default {
-    layout: "guest",
     middleware: "authenticated",
-    data: () => {
-        return {
-            user: {}
-        }
-    },
     components: {
         UserPicture
     },
@@ -39,23 +37,30 @@ export default {
             console.log("Bye");
         }
     },
-    async created() {
-        const auth = Cookie.getJSON("auth");
-        const jwtToken = auth.accessToken
-
-        $nuxt.$axios
-            .get(`${url_api}/auth/me`, {
-                headers: {
-                    Authorization: `Bearer ${jwtToken}`,
-                    useCredentails: true
-                }
-            })
-            .then(res => {
-                this.user = res.data
-            })
-            .catch(err => {
-                console.log(err);
-            });
+    computed: {
+        // user: () => $nuxt.$store.state.auth.user
+        ...mapGetters({
+            user: 'auth/user'
+        })
     },
+
+    // async created() {
+    //     const auth = Cookie.getJSON("auth");
+    //     const jwtToken = auth.accessToken
+
+    //     $nuxt.$axios
+    //         .get(`${url_api}/auth/me`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${jwtToken}`,
+    //                 useCredentails: true
+    //             }
+    //         })
+    //         .then(res => {
+    //             this.user = res.data
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    // },
 };
 </script>

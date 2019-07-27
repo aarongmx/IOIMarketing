@@ -82,7 +82,7 @@ class AuthController extends Controller
         ]);
     }
 
-    private function guard() {
+    protected function guard() {
         return Auth::Guard('api');
     }
 }

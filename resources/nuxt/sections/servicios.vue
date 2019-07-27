@@ -1,8 +1,6 @@
 <template>
     <ul>
-        <!-- <li v-for="(service, index) in servicesList()" :key="index"> -->
-            {{ servicesList }}
-        <!-- </li> -->
+        {{ servicesList }}
     </ul>
 </template>
 
@@ -12,9 +10,6 @@ export default {
     props: {
         services: String
     },
-    // mounted:() => {
-        // console.log(services)
-    // },
     computed: {
         servicesList: () => {
             console.log($nuxt.$props)

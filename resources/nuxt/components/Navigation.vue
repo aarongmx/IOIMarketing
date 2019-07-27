@@ -36,9 +36,6 @@
                     <nuxt-link class="nav-link" to="/home">Inicio</nuxt-link>
                 </li>
                 <li class="nav-item">
-                    <nuxt-link class="nav-link" to="/campaings">Campañas</nuxt-link>
-                </li>
-                <li class="nav-item">
                     <nuxt-link class="nav-link" to="/dashboard">Dashboard</nuxt-link>
                 </li>
                 <li class="nav-item">
@@ -47,7 +44,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <!-- <UserPicture :user="user" size="small" :seeLink="true" /> -->
-                        <p>{{userProfile}}</p>
+                        <p>{{currentUser.nombre}}</p>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <nuxt-link to="/profile" class="dropdown-item">Perfil</nuxt-link>
@@ -71,20 +68,21 @@ import {
 import Brand from '../components/Brand'
 import UserPicture from './UserPicture'
 
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 import jwt from 'jsonwebtoken'
+import { mapGetters } from 'vuex'
 
 export default {
     computed: {
-        currentUser() {
-            return {}
-        }
+        ...mapGetters({
+            currentUser: 'auth/user'
+        })
     },
     methods: {
         cerrarSesion() {
-            Cookie.remove('auth')
-            this.$store.commit('SET_AUTH', null)
-            this.$route.push('/login')
+            $nuxt.$store.commit('auth/SET_AUTH', null)
+            Cookies.remove('auth')
+            $nuxt.$router.push('/')
         }
     },
     components: {

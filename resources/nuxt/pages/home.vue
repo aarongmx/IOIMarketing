@@ -2,37 +2,83 @@
 <fragment>
     <div class="row">
         <div class="col-12">
-            <h1 class="h6">Bienvenid@ de nuevo, {{ `${user.nombre} ${user.apellido_paterno} ${user.apellidos_materno}` }}!</h1>
+            <h1>Mis Campañas</h1>
+            <button class="btn border" @click="exit">Salir</button>
         </div>
-
-        <div class="col-12">
-        </div>
+        <GridCards :user="user" :campaings=campaings />
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <h2>Mis</h2>
-        </div>
-    </div>
+    <nuxt-link to="/campaings/create" class="fab btn btn-primary rounded-circle fixed-bottom d-flex align-items-center justify-content-center"><i class="fas fa-plus"></i></nuxt-link>
 </fragment>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import Cookies from 'js-cookie'
+
+import jwt from 'jsonwebtoken'
+
 export default {
-    layout: 'guest',
     middleware: 'authenticated',
     data: () => {
         return {
-            user: {
-                nombre: 'Janeth',
-                apellido_paterno: 'Ávila',
-                apellidos_materno: 'Pérez'
-            }
+            // user: {
+            //     picture: 'https://img.freepik.com/free-psd/modern-man-smiling_1194-11653.jpg?size=338&ext=jpg',
+            //     name: 'Aarón Gómez Méndez'
+            // },
+            campaings: [
+                {
+                    id: 1,
+                    image: 'https://sneakerbardetroit.com/wp-content/uploads/2019/06/adidas-Spezial-Spring-Summer-2019-Collection-Release-Date-01.jpg',
+                    title: 'Adidas Summer 2019',
+                    description: 'Adidas Summer 2019 Breda, the best place to make big changes',
+                    slug: 'adidas-summer-2019'
+                },
+                {
+                    id: 2,
+                    image: 'https://imagena1.lacoste.com/dw/image/v2/AAUP_PRD/on/demandware.static/-/Sites-storefront-v5/default/dw83dffa54/Lookbooks/Sport/LACOSTE-lookbook-999-1360-7.jpg',
+                    title: 'Lacoste Summer 2019',
+                    description: 'Lecoste Summer 2019 Breda, the best place to make big changes',
+                    slug: 'lacoste-summer-2019'
+                },
+                {
+                    id: 3,
+                    image: 'https://images.solecollector.com/complex/images/c_crop,h_2771,w_4927,x_436,y_360/c_fill,dpr_2.0,f_auto,fl_lossy,q_auto,w_680/ar6qdurcfnubagccojms/diamond-supply-co-puma-spring-summer-2019-collection',
+                    title: 'Puma Summer 2019',
+                    description: 'Puma Summer 2019 Breda, the best place to make big changes',
+                    slug: 'puma-summer-2019'
+                }
+            ]
         }
+    },
+    computed: {
+        ...mapGetters({
+            user: 'auth/user'
+        })
+    },
+    methods: {
+        exit: () => {
+            $nuxt.$store.commit('auth/SET_AUTH', null)
+            Cookies.remove('auth')
+            $nuxt.$router.push('/')
+        }
+    },
+    mounted: () => {
+        console.log(jwt.decode($nuxt.$store.state.auth.auth));
+
+    },
+    components: {
+        GridCards: () => import('../components/Campaings/GridCards')
     }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.fab {
+    width: 56px;
+    height: 56px;
+    bottom: 8vh;
+    left: 93vw;
+}
 </style>
+
