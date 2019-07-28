@@ -4,6 +4,9 @@
         <div class="col-12">
             <h1>Crear Campaña</h1>
         </div>
+        <div class="col-12">
+            <quill></quill>
+        </div>
     </div>
 </fragment>
 </template>

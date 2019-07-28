@@ -11,6 +11,7 @@ module.exports = laravelNuxt({
         { src: "~/plugins/vue-fragments.js", ssr: false },
         { src: "~/plugins/vue-paypal.js", ssr: false },
         { src: "~/plugins/vue-persisted-state.js", ssr: false },
+        { src: "~/plugins/vue-quill.js", ssr: false },
         { src: "~/plugins/ga.js", ssr: false },
     ],
     build: {
