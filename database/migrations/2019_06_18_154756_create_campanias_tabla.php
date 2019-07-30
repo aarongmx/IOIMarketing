@@ -15,11 +15,15 @@ class CreateCampaniasTabla extends Migration
     {
         Schema::create('campanias', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo', 240);
+            $table->text('descripcion');
             $table->integer('likes');
             $table->integer('views');
             $table->text('imagen');
+            $table->string('slug', 220);
+            $table->integer('user_id');
+            $table->unique('slug');
             $table->timestamps();
-            $table->text('slug');
         });
     }
 

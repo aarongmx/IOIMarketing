@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Campanias;
 use Illuminate\Http\Request;
-use Zend\Diactoros\Response;
+use Illuminate\Http\Response;
+use Illuminate\Support\Str;
+use Validator;
+use Storage;
 
 class CampaniasController extends Controller
 {
@@ -15,28 +18,41 @@ class CampaniasController extends Controller
      */
     public function index()
     {
-        return response()->json(Campanias::all(), Response::HTTP_OK);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json([
+            "data" => Campanias::all()
+        ], Response::HTTP_OK);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreCampanias  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->json()->all(), [
+            'titulo' => 'max:240',
+            'imagen' => 'image'
+        ]);
+
+        if($validator->fails()) {
+            return response()->json([
+                "message" => "Por favor introduzca información válida " . $validator->errors()
+            ], Response::HTTP_OK);
+        }
+
+        $file = $request->file('imagen');
+        Storage::putFile('public', $file);
+
+        $campaing = new Campanias($request->all());
+        $campaing->imagen = $file->hashName();
+        $campaing->slug =  Str::slug($request->titulo);
+        $campaing->save();
+
+        return response()->json([
+            "message" => "¡Campaña creada correctamente!"
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -45,20 +61,9 @@ class CampaniasController extends Controller
      * @param  \App\Campanias  $campanias
      * @return \Illuminate\Http\Response
      */
-    public function show(Campanias $campanias)
+    public function show(Campanias $campaing)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Campanias  $campanias
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Campanias $campanias)
-    {
-        //
+        return response()->json(["data" => $campaing], Response::HTTP_OK);
     }
 
     /**
@@ -68,9 +73,26 @@ class CampaniasController extends Controller
      * @param  \App\Campanias  $campanias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Campanias $campanias)
+    public function update(Request $request, Campanias $campaing)
     {
-        //
+        $validator = Validator::make($request->json()->all(), [
+            'titulo' => 'max:240',
+            'description' => 'min:30',
+            'imagen' => 'image'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                "message" => "¡Por favor introduzca información válida! " . $validator->errors()
+            ], Response::HTTP_OK);
+        }
+
+        $campaing->update($request->all());
+        $campaing->save();
+
+        return response()->json([
+            "message" => "¡Campaña actualizada correctamente!"
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -79,8 +101,11 @@ class CampaniasController extends Controller
      * @param  \App\Campanias  $campanias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Campanias $campanias)
+    public function destroy(Campanias $campaing)
     {
-        //
+        $campaing->delete();
+        return response()->json([
+            "message" => "¡Campaña elimiada correctamente!"
+        ], Response::HTTP_OK);
     }
 }

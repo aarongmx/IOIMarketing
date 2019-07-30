@@ -3,9 +3,10 @@
     <div class="row">
         <div class="col-12">
             <h1>Mis Campañas</h1>
-            <button class="btn border" @click="exit">Salir</button>
+            <!-- <button class="btn border" @click="exit">Salir</button> -->
         </div>
         <GridCards :user="user" :campaings=campaings />
+        <!-- <p>{{ user }}</p> -->
     </div>
 
     <nuxt-link to="/campaings/create" class="fab btn btn-primary rounded-circle fixed-bottom d-flex align-items-center justify-content-center"><i class="fas fa-plus"></i></nuxt-link>
@@ -14,18 +15,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Cookies from 'js-cookie'
-
-import jwt from 'jsonwebtoken'
 
 export default {
     middleware: 'authenticated',
     data: () => {
         return {
-            // user: {
-            //     picture: 'https://img.freepik.com/free-psd/modern-man-smiling_1194-11653.jpg?size=338&ext=jpg',
-            //     name: 'Aarón Gómez Méndez'
-            // },
             campaings: [
                 {
                     id: 1,
@@ -59,13 +53,9 @@ export default {
     methods: {
         exit: () => {
             $nuxt.$store.commit('auth/SET_AUTH', null)
-            Cookies.remove('auth')
+            localStorage.removeItem('jwt')
             $nuxt.$router.push('/')
         }
-    },
-    mounted: () => {
-        console.log(jwt.decode($nuxt.$store.state.auth.auth));
-
     },
     components: {
         GridCards: () => import('../components/Campaings/GridCards')

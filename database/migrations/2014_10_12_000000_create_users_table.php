@@ -17,17 +17,17 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('apellido_paterno');
-            $table->string('apellidos_materno');
+            $table->string('apellido_materno');
             $table->string('email')->unique();
             $table->timestamp('verificar_correo_electronico')->nullable();
             $table->string('password');
-            $table->boolean('es_admin');
+            $table->boolean('is_admin');
             $table->string('provider');
             $table->string('provider_id')->unique();
-            $table->rememberToken();
-            $table->timestamps();
             $table->string('imagen');
             $table->text('slug');
+            $table->rememberToken();
+            $table->timestamps();
         });
 
     }

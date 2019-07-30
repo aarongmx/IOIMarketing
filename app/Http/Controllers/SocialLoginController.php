@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\UserSocial;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Controller;
+use Laravel\Socialite\Two\InvalidStateException;
+use Tymon\JWTAuth\JWTAuth;
 
 class SocialLoginController extends Controller
 {
-    public function redirect($service) {
+    protected $auth;
+    public function __construct(JWTAuth $auth)
+    {
+        $this->auth = $auth;
+        $this->middleware(['social']);
+    }
+
+    public function redirect($service)
+    {
         return Socialite::driver($service)->stateless()->redirect();
     }
 
-    public function callback() {
 
+    public function callback($service)
+    {
+        dd($service);
     }
+
 }

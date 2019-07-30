@@ -16,7 +16,19 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'nombre', 'apellido_paterno', 'apellidos_materno', 'email', 'verificar_correo_electronico', 'password', 'es_admin', 'imagen', 'provider', 'provider_id', 'slug'
+        'nombre',
+        'apellido_paterno',
+        'apellido_materno',
+        'email',
+        'imagen',
+        'password'
+    ];
+
+    protected $guarded = [
+        'slug',
+        'is_admin',
+        'provider',
+        'provider_id',
     ];
 
     /**
@@ -25,7 +37,16 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'id',
+        'password',
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'verificar_correo_electronico',
+        'is_admin',
+        'provider',
+        'provider_id',
+        'slug',
     ];
 
     /**
@@ -35,6 +56,13 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $attributes = [
+        'imagen' => 'janeth.jpg',
+        'is_admin' => false,
+        'provider' => '',
+        'provider_id' => ''
     ];
 
     /**

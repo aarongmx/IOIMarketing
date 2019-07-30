@@ -47,19 +47,19 @@ import {
 } from '../utils/config'
 
 export default {
-    // middleware: 'notAuthenticated',
+    middleware: 'notAuthenticated',
     data: () => {
         return {
             socialLinks: [{
-                    link: "#",
+                    // link: `/api/auth/facebook`,
                     icon: "facebook"
                 },
                 {
-                    link: "#",
+                    // link: `${url_api}/api/auth/google`,
                     icon: "google-plus-g"
                 },
                 {
-                    link: "#",
+                    // link: `${url_api}/api/auth/mailchimp`,
                     icon: "mailchimp"
                 }
             ],
@@ -71,24 +71,11 @@ export default {
     },
     methods: {
         handleForm() {
-            const Cookie = process.client ? require('js-cookie') : undefined
-
-            $nuxt.$axios
-                .post(`${url_api}/auth/login`, {
-                    'email': this.login.correo,
-                    'password': this.login.password
-                }, {
-                    useCredentails: true,
-                })
-                .then(res => {
-                    const auth = res.data.access_token
-                    this.$store.commit('auth/SET_AUTH', auth) // mutating to store for client rendering
-                    Cookie.set('auth', auth) // saving token in cookie for server rendering
-                    this.$router.push('/home')
-                })
-                .catch(err => {
-                    console.error(err)
-                })
+            $nuxt.$store.dispatch('auth/login', {
+                email: this.login.correo,
+                password: this.login.password
+            })
+            .then(() => $nuxt.$router.push('/home'))
         }
     },
 };

@@ -1,7 +1,7 @@
 <template>
 <fragment>
-    <img :src="`${url_images}/${user.picture}`" :alt="`Fotografía de ${user.name}`" :class="`rounded-circle picture picture--${size}`">
-    <span class="ml-2" v-if="seeLink">{{ user.name }}</span>
+    <img :src="`${url_images}/${user.imagen}`" :alt="`Fotografía de ${user.nombre}`" :class="`rounded-circle picture picture--${size}`">
+    <span class="ml-2" v-if="seeLink">{{ user.nombre }} {{ user.apellido_paterno }} </span>
 </fragment>
 </template>
 
@@ -9,9 +9,15 @@
 import { url_images } from '../utils/config'
 export default {
     props: {
-        size: String,
+        size: {
+            type: String,
+            default: 'small'
+        },
         user: Object,
-        seeLink: false
+        seeLink: {
+            type: Boolean,
+            default: false
+        }
     },
     data: () => {
         return {

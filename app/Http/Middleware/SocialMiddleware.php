@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Response;
 
 class SocialMiddleware
 {
@@ -16,7 +17,9 @@ class SocialMiddleware
     public function handle($request, Closure $next)
     {
         $services = ['facebook', 'google', 'mailchimp'];
+
         $enableServices = [];
+
         foreach ($services as $service) {
             if (config('services' . $service)) {
                 $enableServices[] = $service;
@@ -28,7 +31,7 @@ class SocialMiddleware
                 return response()->json([
                     'success' => false,
                     'message' => '¡Red social inválida!'
-                ], 403);
+                ], Response::HTTP_FORBIDDEN);
             } else {
                 return redirect()->back();
             }

@@ -15,7 +15,7 @@
             <form @submit.prevent="handleForm" method="post">
                 <div class="from-group my-4">
                     <label for="name">Nombre Completo</label>
-                    <input type="text" name="name" id="name" class="form-control" v-model="user.name">
+                    <input type="text" name="name" id="name" class="form-control" v-model="user.nombre">
                     <div class="invalid-feedback">
                         ¡Sólo se permiten letras en su nombre!
                     </div>
@@ -49,23 +49,20 @@
 
 <script>
 import UserPicture from '../../components/UserPicture'
+import {
+    mapGetters
+} from "vuex";
 export default {
-    data: () => {
-        return {
-            user: {
-                picture: `http://127.0.0.1:8001/images/janeth.jpg`,
-                name: 'Janeth Ávila Pérez',
-                nickname: 'janeth avila',
-                email: 'janeth_avila98@gmail.com',
-                password: '',
-                confirmPassword: ''
-            }
-        }
-    },
+    middleware: 'authenticated',
     methods: {
         handleForm() {
             console.log(this.user)
         }
+    },
+    computed: {
+        ...mapGetters({
+            user: 'auth/user'
+        })
     },
     components: {
         UserPicture

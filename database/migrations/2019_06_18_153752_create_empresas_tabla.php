@@ -20,8 +20,8 @@ class CreateEmpresasTabla extends Migration
             $table->string('correo');
             $table->text('imagen');
             $table->text('nombre_empresa');
-            $table->timestamps();
             $table->text('slug');
+            $table->timestamps();
         });
     }
 

@@ -20,8 +20,8 @@ class CreatePlanesTable extends Migration
             $table->json('caracteristicas');
             $table->text('descripcion');
             $table->text('imagen');
-            $table->timestamps();
             $table->text('slug');
+            $table->timestamps();
         });
     }
 

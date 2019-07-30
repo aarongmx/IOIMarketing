@@ -133,6 +133,7 @@ import Brand from '../components/Brand'
 import Servicios from '../sections/servicios'
 
 export default {
+    layout: 'guest',
     data: () => {
         return {
             preguntas: [

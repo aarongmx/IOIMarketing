@@ -1,8 +1,8 @@
 <template>
 <div class="card">
     <div class="card-header">
-        <img :src="user.picture" :alt="`Imágen del usuario ${user.name}`" class="rounded-circle user__picture" />
-        <p class="d-inline ml-2">{{ user.name }}</p>
+        <img :src="`http://127.0.0.1:8001/images/${user.imagen}`" :alt="`Imágen del usuario ${user.nombre}`" class="rounded-circle user__picture" />
+        <p class="d-inline ml-2">{{ `${user.nombre} ${user.apellido_paterno}` }}</p>
     </div>
     <img :src="campaing.image" :alt="`${campaing.title}`" class="card-img-top">
     <div class="card-body">

@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-            <template v-if="!currentUser">
+            <template v-if="!user">
                 <li class="nav-item">
                     <nuxt-link class="nav-link" to="/">Inicio</nuxt-link>
                 </li>
@@ -27,9 +27,7 @@
                 <li class="nav-item">
                     <nuxt-link class="nav-link text-primary btn border border-primary" to="/login">Iniciar Sesión</nuxt-link>
                 </li>
-                <li class="nav-item">
-                    <nuxt-link class="nav-link text-secondary" to="/register">Registrarse</nuxt-link>
-                </li>
+
             </template>
             <template v-else>
                 <li class="nav-item">
@@ -43,17 +41,13 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <!-- <UserPicture :user="user" size="small" :seeLink="true" /> -->
-                        <p>{{currentUser.nombre}}</p>
+                        <UserPicture :user="user" seeLink />
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <nuxt-link to="/profile" class="dropdown-item">Perfil</nuxt-link>
                         <nuxt-link to="/plan" class="dropdown-item">Mi plan</nuxt-link>
                         <button class="dropdown-item" @click="cerrarSesion">Cerrar Sesión</button>
                     </div>
-                </li>
-                <li class="nav-item">
-
                 </li>
             </template>
         </ul>
@@ -68,21 +62,18 @@ import {
 import Brand from '../components/Brand'
 import UserPicture from './UserPicture'
 
-import Cookies from 'js-cookie'
-import jwt from 'jsonwebtoken'
 import { mapGetters } from 'vuex'
 
 export default {
     computed: {
         ...mapGetters({
-            currentUser: 'auth/user'
+            user: 'auth/user',
+            token: 'auth/auth'
         })
     },
     methods: {
         cerrarSesion() {
-            $nuxt.$store.commit('auth/SET_AUTH', null)
-            Cookies.remove('auth')
-            $nuxt.$router.push('/')
+            $nuxt.$store.dispatch('auth/logout', this.token).then(() => $nuxt.$router.push('/'))
         }
     },
     components: {

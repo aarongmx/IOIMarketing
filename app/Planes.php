@@ -14,8 +14,19 @@ class Planes extends Model
         'caracteristicas',
         'descripcion',
         'imagen',
+    ];
+
+    protected $guarded = [
         'slug'
     ];
+
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at',
+        'slug'
+    ];
+
 
     protected $casts = [
         'caracteristicas' => 'array',

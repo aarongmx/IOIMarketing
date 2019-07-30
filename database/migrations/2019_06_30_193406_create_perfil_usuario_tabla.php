@@ -15,11 +15,11 @@ class CreatePerfilUsuarioTabla extends Migration
     {
         Schema::create('perfil_usuario', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->integer('numero_campanias');
             $table->text('domicilio');
             $table->text('telefono');
             $table->text('slug');
+            $table->timestamps();
 
 
         });
