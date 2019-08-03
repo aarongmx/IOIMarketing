@@ -125,9 +125,7 @@
 </template>
 
 <script>
-import {
-    url_api
-} from '../utils/config'
+
 import formatServices from '../utils/format'
 import Brand from '../components/Brand'
 import Servicios from '../sections/servicios'
@@ -161,6 +159,10 @@ export default {
             console.log(this.contacto)
         },
     },
+    mounted() {
+        console.table(this.servicios);
+
+    },
     async asyncData({
         isDev,
         route,
@@ -174,11 +176,9 @@ export default {
         error
     }) {
         try {
-            const res = await $nuxt.$axios(`${url_api}/planes`)
-            const servicios = res.data
-            return {
-                servicios
-            }
+            const res = await $nuxt.$axios(`${process.env.baseUrl}/planes`)
+            const servicios = await res.data
+            return { servicios }
         } catch (error) {
             console.log(error)
             return {

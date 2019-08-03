@@ -14,87 +14,71 @@
         <div class="col-12">
             <form @submit.prevent="handleForm" method="post">
                 <div class="from-group my-4">
-                    <label for="name">Nombre Completo</label>
-                    <input type="text" name="name" id="name" class="form-control" v-model="user.nombre">
-                    <div class="invalid-feedback">
-                        ¡Sólo se permiten letras en su nombre!
-                    </div>
+                    <label for="name">Nombre(s)</label>
+                    <input type="text" name="name" id="name" class="form-control" v-model="user.nombre"  />
+                    <div class="invalid-feedback">¡Sólo se permiten letras en su nombre!</div>
                 </div>
+
+                <div class="from-group my-4">
+                    <label for="apellido-paterno">Apellido Paterno</label>
+                    <input type="text" name="apellido-paterno" id="apellido-paterno" class="form-control" v-model="user.apellido_paterno"  />
+                    <div class="invalid-feedback">¡Sólo se permiten letras en su nombre!</div>
+                </div>
+
+                <div class="from-group my-4">
+                    <label for="apellido-materno">Apellido Materno</label>
+                    <input type="text" name="apellido-materno" id="apellido-materno" class="form-control" v-model="user.apellido_materno"  />
+                    <div class="invalid-feedback">¡Sólo se permiten letras en su nombre!</div>
+                </div>
+
 
                 <div class="form-group my-4">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" class="form-control" v-model="user.password">
-                    <div class="invalid-feedback">
-                        ¡La contraseña debe tener al menos 8 carácteres!
-                    </div>
+                    <input type="password" name="password" id="password" class="form-control" v-model="user.password" />
+                    <div class="invalid-feedback">¡La contraseña debe tener al menos 8 carácteres!</div>
                 </div>
 
                 <div class="form-group my-4">
                     <label for="confirm-password">Confirmar contraseña</label>
-                    <input type="password" name="confirm-password" id="confirm-password" class="form-control" v-model="user.confirmPassword">
-                    <div class="invalid-feedback">
-                        ¡La contraseña debe tener al menos 8 carácteres!
-                    </div>
+                    <input type="password" name="confirm-password" id="confirm-password" class="form-control" v-model="user.confirmPassword" />
+                    <div class="invalid-feedback">¡La contraseña debe tener al menos 8 carácteres!</div>
                 </div>
 
                 <div class="text-center my-5">
-                    <button type="submit" class="btn btn-primary    rounded-pill w-75 text">Actualizar</button>
+                    <button type="submit" class="btn btn-primary rounded-pill w-75 text">Actualizar</button>
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 </template>
 
 <script>
-import UserPicture from '../../components/UserPicture'
+import UserPicture from "../../components/UserPicture";
+
 import {
-    mapGetters
+    mapGetters,
+    mapMutations
 } from "vuex";
+
 export default {
-    middleware: 'authenticated',
+    middleware: "authenticated",
     methods: {
         handleForm() {
-            console.log(this.user)
-        }
+            $nuxt.$store.dispatch('updateUser', {user: this.user});
+        },
     },
     computed: {
         ...mapGetters({
-            user: 'auth/user'
-        })
+            user: "auth/getUser"
+        }),
     },
     components: {
         UserPicture
     },
-    async asyncData({
-        isDev,
-        route,
-        store,
-        env,
-        params,
-        query,
-        req,
-        res,
-        redirect,
-        error
-    }) {
-        try {
-            const response = await $nuxt.$axios.get(`${url_api}/planes/${params.slug}`)
-            const servicio = response.data
-            return {
-                servicio
-            }
-        } catch (error) {
-            console.error(error)
-            return {
-                error
-            }
-        }
-    },
-}
+
+};
 </script>
 
 <style>
-
 </style>

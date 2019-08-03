@@ -1,6 +1,6 @@
 <template>
 <div class="row">
-    <div class="col-12 col-lg-7 p-0" :style="{background: `url(${url_images}/${servicio.imagen}) no-repeat center / cover`}">
+    <div class="col-12 col-lg-7 p-0" :style="{background: `url(${imgUrl}/${servicio.imagen}) no-repeat center / cover`}">
     </div>
     <div class="col-12 col-lg-5 py-4 px-3">
         <h1>{{ servicio.nombre }}</h1>
@@ -23,10 +23,7 @@
 </template>
 
 <script>
-import {
-    url_api,
-    url_images
-} from '../../utils/config'
+
 import PayPal from 'vue-paypal-checkout'
 export default {
     layout: 'guest',
@@ -43,10 +40,10 @@ export default {
         error
     }) {
         try {
-            const response = await $nuxt.$axios.get(`${url_api}/planes/${params.slug}`)
-            const servicio = response.data
+            const response = await $nuxt.$axios.get(`${process.env.baseUrl}/planes/${params.slug}`)
+            const servicio = await response.data
             return {
-                servicio,
+                servicio
             }
         } catch (error) {
             return {
@@ -56,7 +53,7 @@ export default {
     },
     data: () => {
         return {
-            url_images,
+            imgUrl: process.env.imgUrl,
             paypal: {
                 sandbox: 'AQTrRrXVkANBpWp-O3nmL1v4v6lkiv4AYRBYZLaJGKIBCx3YCszI0zlTcv8-p9kXm5pNXZvIZeCNYn4v',
             },

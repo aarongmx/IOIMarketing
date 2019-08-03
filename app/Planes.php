@@ -14,6 +14,7 @@ class Planes extends Model
         'caracteristicas',
         'descripcion',
         'imagen',
+        'slug',
     ];
 
     protected $guarded = [
@@ -24,7 +25,6 @@ class Planes extends Model
         'id',
         'created_at',
         'updated_at',
-        'slug'
     ];
 
 

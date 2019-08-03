@@ -5,13 +5,13 @@ module.exports = laravelNuxt({
         mode: "history"
     },
     css: ["@/assets/sass/app.scss"],
-    modules: [
-    ],
+    modules: [],
     plugins: [
         { src: "~/plugins/vue-fragments.js", ssr: false },
         { src: "~/plugins/vue-paypal.js", ssr: false },
         { src: "~/plugins/vue-quill.js", ssr: false },
         { src: "~/plugins/ga.js", ssr: false },
+        { src: "~/plugins/vue-croppie.js", ssr: false }
     ],
     build: {
         vendor: ["jquery", "bootstrap"]
@@ -33,5 +33,9 @@ module.exports = laravelNuxt({
             }
         ],
         script: [{ src: "https://kit.fontawesome.com/28e7e922cb.js" }]
+    },
+    env: {
+        baseUrl: "http://brand-wifi.mx/api",
+        imgUrl: 'http://brand-wifi.mx/images',
     }
 });

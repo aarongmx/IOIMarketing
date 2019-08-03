@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     // layout: 'guest',
     middleware: 'authenticated',
@@ -30,6 +32,14 @@ export default {
     },
     components: {
         GridCards: () => import('../../components/Campaings/GridCards')
+    },
+    computed: {
+        ...mapGetters({
+            campaings: 'campaings/getCampaings'
+        })
+    },
+    mounted() {
+        console.log(this.campaings)
     }
 }
 </script>

@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'middleware' => 'api',
     'prefix' => 'auth'
 ], function ($router) {
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
+    Route::put('update', 'AuthController@update');
 
-    Route::get('login/{service}', 'SocialLoginController@redirect');
-    Route::get('login/{service}/callback', 'SocialLoginController@callback');
+    // Route::get('login/{service}', 'SocialLoginController@redirect');
+    // Route::get('login/{service}/callback', 'SocialLoginController@callback');
 });
 
 

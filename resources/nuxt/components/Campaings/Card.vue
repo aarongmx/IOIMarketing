@@ -1,12 +1,12 @@
 <template>
 <div class="card">
     <div class="card-header">
-        <img :src="`http://127.0.0.1:8001/images/${user.imagen}`" :alt="`Imágen del usuario ${user.nombre}`" class="rounded-circle user__picture" />
+        <img :src="`${imgUrl}/${user.imagen}`" :alt="`Imágen del usuario ${user.nombre}`" class="rounded-circle user__picture" />
         <p class="d-inline ml-2">{{ `${user.nombre} ${user.apellido_paterno}` }}</p>
     </div>
     <img :src="campaing.image" :alt="`${campaing.title}`" class="card-img-top">
     <div class="card-body">
-        <h4 class="card-title">{{ campaing.title }}</h4>
+        <h5 class="card-title">{{ campaing.title }}</h5>
         <p class="card-text text-truncate">{{ campaing.description }}</p>
     </div>
     <div class="card-footer">
@@ -36,16 +36,22 @@ export default {
                 slug: 'campaña'
             })
         }
-    }
+    },
+    data: () => {
+        return {
+            imgUrl: process.env.imgUrl
+        }
+    },
 }
 </script>
 
-
 <style lang="scss">
 $size: 48px;
+
 .user__picture {
     width: $size;
     height: $size;
+
     object: {
         fit: cover;
         position: top;

@@ -15,10 +15,6 @@
 </template>
 
 <script>
-import {
-    url_images,
-    url_api
-} from "../../utils/config";
 import UserPicture from "../../components/UserPicture";
 
 import {
@@ -37,7 +33,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            user: 'auth/user'
+            user: 'auth/getUser'
         })
     },
 };
