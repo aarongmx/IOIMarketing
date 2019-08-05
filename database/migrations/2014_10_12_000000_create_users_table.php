@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('provider_id')->unique();
             $table->string('imagen');
             $table->text('slug');
+            $table->integer('plan_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
         });

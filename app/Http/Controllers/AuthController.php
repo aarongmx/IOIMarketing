@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\User;
+use Illuminate\Http\Response;
 
 class AuthController extends Controller
 {
@@ -60,6 +62,12 @@ class AuthController extends Controller
         ], Response::HTTP_OK);
     }
 
+    public function reset(Request $request) {
+        return response()->json([
+            'message' => $request->all()
+        ], Response::HTTP_OK);
+    }
+
     /**
      * Log the user out (Invalidate the token).
      *
@@ -69,7 +77,9 @@ class AuthController extends Controller
     {
         auth('api')->logout();
 
-        return response()->json(['message' => '¡Sesión cerrada correctamente!']);
+        return response()->json([
+            'message' => '¡Sesión cerrada correctamente!'
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -95,7 +105,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'user' => auth('api')->user(),
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL() * (60 * 48)
         ]);
     }
 }

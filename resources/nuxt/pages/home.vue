@@ -32,10 +32,6 @@ export default {
     components: {
         GridCards: () => import('../components/Campaings/GridCards')
     },
-    mounted() {
-        console.log(this.campaings);
-
-    }
 }
 </script>
 

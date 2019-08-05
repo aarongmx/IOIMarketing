@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,14 @@ Route::group([
     Route::get('me', 'AuthController@me');
     Route::put('update', 'AuthController@update');
 
-    // Route::get('login/{service}', 'SocialLoginController@redirect');
-    // Route::get('login/{service}/callback', 'SocialLoginController@callback');
 });
+Route::get('login/{service}', 'SocialLoginController@redirect');
+Route::get('login/{service}/callback', 'SocialLoginController@callback');
 
+Route::post('reset', 'ForgotPasswordController@sendResetLinkEmail');
+Route::post('recover', 'ForgotPasswordController@recoverPassword');
 
-Route::apiResource('planes', 'PlanesController');
+Route::get('planes', 'PlanesController@index');
+Route::get('planes/{plan}', 'PlanesController@show');
+
 Route::apiResource('campaings', 'CampaniasController');

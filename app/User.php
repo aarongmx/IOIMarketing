@@ -59,7 +59,7 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     protected $attributes = [
-        'imagen' => 'janeth.jpg',
+        'imagen' => 'user.png',
         'is_admin' => false,
         'provider' => '',
         'provider_id' => ''

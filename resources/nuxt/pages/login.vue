@@ -42,9 +42,7 @@
 </template>
 
 <script>
-import {
-    url_api
-} from '../utils/config'
+
 
 export default {
     middleware: 'notAuthenticated',

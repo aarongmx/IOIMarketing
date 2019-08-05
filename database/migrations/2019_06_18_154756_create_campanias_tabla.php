@@ -21,7 +21,8 @@ class CreateCampaniasTabla extends Migration
             $table->integer('views');
             $table->text('imagen');
             $table->string('slug', 220);
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unique('slug');
             $table->timestamps();
         });

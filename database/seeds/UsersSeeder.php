@@ -19,6 +19,19 @@ class UsersSeeder extends Seeder
         $user->email = "maryan@gmail.com";
         $user->password = Hash::make("maryan");
         $user->slug= 'mary-an';
+        $user->plan_id = 1;
+        $user->provider_id = "myalz";
         $user->save();
+
+        $user2 = new User();
+        $user2->nombre = "Aarón";
+        $user2->apellido_paterno = "Gómez";
+        $user2->apellido_materno = "Méndez";
+        $user2->email = "aaron.gomez@live.com";
+        $user2->password = Hash::make("aaron");
+        $user2->slug= 'aaron';
+        $user2->provider_id = "aagmx";
+        $user2->plan_id = 3;
+        $user2->save();
     }
 }

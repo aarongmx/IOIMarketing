@@ -14,4 +14,3 @@
 Route::get('/{ruta}',
     '\\' . Pallares\LaravelNuxt\Controllers\NuxtController::class
 )->where('ruta','.*');
-

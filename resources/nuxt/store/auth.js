@@ -2,7 +2,7 @@ const url_api = process.env.baseUrl;
 
 export const state = () => ({
     auth: localStorage.getItem("jwt") || "",
-    user: localStorage.getItem("user") || {}
+    user: JSON.parse(localStorage.getItem("user")) || null
 });
 
 export const mutations = {
@@ -12,15 +12,19 @@ export const mutations = {
 
     SET_USER: (state, user) => {
         state.user = user;
-    }
+    },
 };
 
 export const getters = {
     getUser: state => {
-        return JSON.parse(state.user) || {};
+        return state.user;
     },
     getAuth: state => {
         return state.auth;
+    },
+    getFullName: state => {
+        const { nombre, apellido_paterno, apellido_materno } = state.user
+        return `${nombre} ${apellido_paterno} ${apellido_materno}`
     }
 };
 
@@ -48,18 +52,20 @@ export const actions = {
 
     async logout({ commit }, token) {
         try {
+            // console.log(token);
+
             const fetch = await $nuxt.$axios.post(
-                `${url_api}/auth/logout`,
-                {},
+                `${url_api}/auth/logout`, {},
                 {
-                    useCredentails: true,
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
                     }
                 }
             );
             const message = await fetch.data.message;
-            console.log(message);
+
+            // console.log(message);
 
             localStorage.removeItem("user");
             localStorage.removeItem("jwt");
@@ -71,12 +77,18 @@ export const actions = {
         }
     },
 
-    async updateUser({ commit }, user) {
+    async updateUser({ commit }, user, token) {
         try {
-            const fetch = await $nuxt.$axios.post(`${url_api}/auth/update`)
+            const fetch = await $nuxt.$axios.put(`${url_api}/auth/update`, { user }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
             const msg = await fetch.data.message
+            console.log(msg);
+
         } catch(error) {
             console.error(error)
         }
-    }
+    },
 };

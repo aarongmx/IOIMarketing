@@ -56,9 +56,7 @@
 </template>
 
 <script>
-import {
-    url_api
-} from '../utils/config'
+
 import Brand from '../components/Brand'
 import UserPicture from './UserPicture'
 
@@ -68,7 +66,7 @@ export default {
     computed: {
         ...mapGetters({
             user: 'auth/getUser',
-            token: 'auth/auth'
+            token: 'auth/getAuth'
         })
     },
     methods: {
@@ -79,6 +77,10 @@ export default {
     components: {
         Brand,
         UserPicture
-    }
+    },
+    mounted() {
+        // console.log(this.user);
+
+    },
 }
 </script>

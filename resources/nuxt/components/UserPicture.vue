@@ -1,28 +1,23 @@
 <template>
 <fragment>
-    <img :src="`${url_images}/${user.imagen}`" :alt="`Fotografía de ${user.nombre}`" :class="`rounded-circle picture picture--${size}`">
+    <Picture :image="user.imagen" :name="user.name" :size="size" />
     <span class="ml-2" v-if="seeLink">{{ user.nombre }} {{ user.apellido_paterno }} </span>
 </fragment>
 </template>
 
 <script>
-import { url_images } from '../utils/config'
+import Picture from './Picture'
 export default {
     props: {
-        size: {
-            type: String,
-            default: 'small'
-        },
+        size: String,
         user: Object,
         seeLink: {
             type: Boolean,
             default: false
         }
     },
-    data: () => {
-        return {
-            url_images
-        }
+    components: {
+        Picture
     }
 }
 </script>

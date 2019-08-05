@@ -5,7 +5,7 @@
                 <h1>Ólvido su contraseña</h1>
             </div>
             <div class="col-12">
-                <form action="">
+                <form method="post" @submit.prevent="recoverPassword">
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
                         <input type="email" name="email" id="email" class="form-control" v-model="email">
@@ -20,15 +20,22 @@
 </template>
 
 <script>
+
 export default {
     data: () => {
         return {
             email: ''
         }
     },
-    updated() {
-        console.log(this.email)
-    }
+    methods: {
+        async recoverPassword() {
+            const fetch = await $nuxt.$axios.post(`${process.env.baseUrl}/reset`, email)
+            const { data, status } = await fetch
+            if(status === 200) {
+                this.email = ''
+            }
+        }
+    },
 }
 </script>
 

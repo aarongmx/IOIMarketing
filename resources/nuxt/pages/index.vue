@@ -156,11 +156,9 @@ export default {
     },
     methods: {
         handleForm() {
-            console.log(this.contacto)
         },
     },
     mounted() {
-        console.table(this.servicios);
 
     },
     async asyncData({

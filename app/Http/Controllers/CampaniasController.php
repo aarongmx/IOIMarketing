@@ -11,6 +11,16 @@ use Storage;
 
 class CampaniasController extends Controller
 {
+
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +28,9 @@ class CampaniasController extends Controller
      */
     public function index()
     {
+        $campaings = Campanias::all();
         return response()->json([
-            "data" => Campanias::all()
+            "data" => $campaings
         ], Response::HTTP_OK);
     }
 
@@ -47,7 +58,7 @@ class CampaniasController extends Controller
 
         $campaing = new Campanias($request->all());
         $campaing->imagen = $file->hashName();
-        $campaing->slug =  Str::slug($request->titulo);
+        $campaing->slug = Str::slug($request->titulo);
         $campaing->save();
 
         return response()->json([
@@ -63,7 +74,9 @@ class CampaniasController extends Controller
      */
     public function show(Campanias $campaing)
     {
-        return response()->json(["data" => $campaing], Response::HTTP_OK);
+        return response()->json([
+            "data" => $campaing
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -105,7 +118,7 @@ class CampaniasController extends Controller
     {
         $campaing->delete();
         return response()->json([
-            "message" => "¡Campaña elimiada correctamente!"
+            "message" => "¡Campaña eliminada correctamente!"
         ], Response::HTTP_OK);
     }
 }

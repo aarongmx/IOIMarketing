@@ -18,16 +18,6 @@ class PlanesController extends Controller
         $planes = Planes::all();
         return response()->json($planes, Response::HTTP_OK);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -35,30 +25,8 @@ class PlanesController extends Controller
      * @param  \App\Planes  $planes
      * @return \Illuminate\Http\Response
      */
-    public function show(Planes $plane)
+    public function show(Planes $plan)
     {
-        return response()->json($plane, Response::HTTP_OK);
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Planes  $planes
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Planes $plane)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Planes  $planes
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Planes $plane)
-    {
-        //
+        return response()->json($plan, Response::HTTP_OK);
     }
 }
