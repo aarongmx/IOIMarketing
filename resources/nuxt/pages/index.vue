@@ -125,7 +125,6 @@
 </template>
 
 <script>
-
 import formatServices from '../utils/format'
 import Brand from '../components/Brand'
 import Servicios from '../sections/servicios'
@@ -155,11 +154,23 @@ export default {
         Servicios
     },
     methods: {
-        handleForm() {
-        },
-    },
-    mounted() {
+        async handleForm() {
+            const response = await $nuxt.$axios.post(`${process.env.baseUrl}/contact`, {
+                nombre: this.contacto.nombre,
+                correo: this.contacto.correo,
+                empresa: this.contacto.empresa,
+                mensaje: this.contacto.mensaje
+            })
+            const { data, status } = await response
 
+            if(status === 200) {
+                this.contacto.nombre = ''
+                this.contacto.correo = ''
+                this.contacto.empresa = ''
+                this.contacto.mensaje = ''
+            }
+
+        },
     },
     async asyncData({
         isDev,
@@ -176,7 +187,9 @@ export default {
         try {
             const res = await $nuxt.$axios(`${process.env.baseUrl}/planes`)
             const servicios = await res.data
-            return { servicios }
+            return {
+                servicios
+            }
         } catch (error) {
             console.log(error)
             return {

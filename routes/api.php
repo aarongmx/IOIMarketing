@@ -21,13 +21,15 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
     Route::put('update', 'AuthController@update');
-
 });
+
 Route::get('login/{service}', 'SocialLoginController@redirect');
 Route::get('login/{service}/callback', 'SocialLoginController@callback');
 
 Route::post('reset', 'ForgotPasswordController@sendResetLinkEmail');
 Route::post('recover', 'ForgotPasswordController@recoverPassword');
+
+Route::post('contact', 'ContactController');
 
 Route::get('planes', 'PlanesController@index');
 Route::get('planes/{plan}', 'PlanesController@show');
