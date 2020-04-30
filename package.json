@@ -8,7 +8,7 @@
         "@nuxtjs/google-analytics": "^2.2.0",
         "babel-plugin-transform-runtime": "^6.23.0",
         "bootstrap": "^4.3.1",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "laravel-nuxt": "^1.5.0",
         "material-design-icons-iconfont": "^5.0.1",
         "nuxt-svg": "^0.1.6",
